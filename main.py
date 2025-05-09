@@ -144,11 +144,12 @@ class windowOrder(EasyFrame):
     #Open the home window
     def home(self):
         self.destroy()
-        windowHome().mainloop()
+        #Changes the count back to normal
         global flowerCheck
         global colorCheck
         colorCheck = 0
         flowerCheck = 0
+        windowHome().mainloop()
         
     #Opens the exit window
     def exit(self):
