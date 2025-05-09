@@ -11,16 +11,23 @@ from tkinter import PhotoImage
 from tkinter.font import Font
 
 #varables
+#The cost of tulips
 TULIP_COST = 15.00
+#The cost of daisy
 DAISY_COST = 20.00
+#The cost of purple flowers
 PURPLE_COST = 3.00
+#The cost of white flowers
 WHITE_COST = 5.00
+#The curent tax rate
 TAX_RATE = 0.10
+#Check to see what flower was chosen
 flowerCheck = 0
+#Checks to see what color of flower was chosen
 colorCheck = 0
 
 
-#The main window
+'''The main window'''
 class windowHome(EasyFrame):
     
     def __init__(self):
@@ -39,26 +46,30 @@ class windowHome(EasyFrame):
         self.orderBtn = self.addButton(text = "Confirm Order", row = 9, column = 1, command = self.order)
         self.exitBtn = self.addButton(text = "Exit Program", row = 10, column = 1, command = self.exit)
 
-    #The tulip button
+    #The tulip button removes daisy
     def tulipBtn(self):
         self.daisyBtn["state"] = "disable"
+        #Changes flower to tulip
         global flowerCheck
         flowerCheck = 1
 
-    #The daisy button
+    #The daisy button removes tulip
     def daisyBtn(self):
+        #Changes flower to daisy
         self.tulipBtn["state"] = "disable"
         global flowerCheck
         flowerCheck = 2
 
-    #The purple button
+    #The purple button removes white
     def purpleBtn(self):
+        #Changes color to purple
         self.whiteBtn["state"] = "disable"
         global colorCheck
         colorCheck = 1
 
-    #The white button
+    #The white button removes purple
     def whiteBtn(self):
+        #Changes color to white
         self.purpleBtn["state"] = "disable"
         global colorCheck
         colorCheck = 2
@@ -69,6 +80,7 @@ class windowHome(EasyFrame):
         self.tulipBtn["state"] = "normal"
         self.purpleBtn["state"] = "normal"
         self.whiteBtn["state"] = "normal"
+        #Changes the count back to normal
         global flowerCheck
         global colorCheck
         colorCheck = 0
@@ -84,7 +96,7 @@ class windowHome(EasyFrame):
         self.destroy()
         windowExit().mainloop()
 
-#Open a window telling what flowers total is
+'''Open a window telling what flowers total is'''
 class windowOrder(EasyFrame):
     def __init__(self):
         EasyFrame.__init__(self, title = "Rosebud Online Flower Shop")
@@ -95,6 +107,7 @@ class windowOrder(EasyFrame):
             self.addLabel(text = "No order placed", row = 3, column = 1, sticky = "N")
         #checking that tulip and purple was pressed
         elif colorCheck == 1 and flowerCheck == 1:
+            #Math to get the total
             totalFlower = TULIP_COST + PURPLE_COST
             totalTax = totalFlower * TAX_RATE
             total = totalFlower + totalTax
@@ -102,6 +115,7 @@ class windowOrder(EasyFrame):
             self.addLabel(text = total, row = 3, column = 1, sticky = "N")
         #checking that tulip and white was pressed
         elif colorCheck == 2 and flowerCheck == 1:
+            #Math to get the total
             totalFlower = TULIP_COST + WHITE_COST
             totalTax = totalFlower * TAX_RATE
             total = totalFlower + totalTax
@@ -109,6 +123,7 @@ class windowOrder(EasyFrame):
             self.addLabel(text = total, row = 3, column = 1, sticky = "N")
         #checking that daisy and purple was pressed
         elif colorCheck == 1 and flowerCheck == 2:
+            #Math to get the total
             totalFlower = DAISY_COST + PURPLE_COST
             totalTax = totalFlower * TAX_RATE
             total = totalFlower + totalTax
@@ -116,6 +131,7 @@ class windowOrder(EasyFrame):
             self.addLabel(text = total, row = 3, column = 1, sticky = "N")
         #checking that daisy and white was pressed
         elif colorCheck == 2 and flowerCheck == 2:
+            #Math to get the total
             totalFlower = DAISY_COST + WHITE_COST
             totalTax = totalFlower * TAX_RATE
             total = totalFlower + totalTax
@@ -141,7 +157,7 @@ class windowOrder(EasyFrame):
             
     
 
-#Open a window to instruct the user to close the window
+'''Open a window to instruct the user to close the window'''
 class windowExit(EasyFrame):
     
     def __init__(self):
@@ -149,11 +165,11 @@ class windowExit(EasyFrame):
         self.addLabel(text = "Press the 'x' in the top corner to close", row = 0, column = 1, sticky = "N")
 
         
-
+#runs the home window
 def main():
     windowHome().mainloop()
         
         
-    
+#makes main work  
 if __name__ == "__main__":
     main()
