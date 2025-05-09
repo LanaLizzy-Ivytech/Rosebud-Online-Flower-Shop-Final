@@ -91,26 +91,34 @@ class windowOrder(EasyFrame):
         self.addLabel(text = "Order Page", row = 0, column = 1, sticky = "N")
         #checking that button were pressed
         if colorCheck == 0 or flowerCheck == 0:
-            self.addLabel(text = "One or more button were not pressed please go back to place a order", row = 2, column = 1, sticky = "N")
+            self.addLabel(text = "One or more buttons were not pressed please go back to place a order", row = 2, column = 1, sticky = "N")
             self.addLabel(text = "No order placed", row = 3, column = 1, sticky = "N")
         #checking that tulip and purple was pressed
         elif colorCheck == 1 and flowerCheck == 1:
-            total = (TULIP_COST + PURPLE_COST) * TAX_RATE
+            totalFlower = TULIP_COST + PURPLE_COST
+            totalTax = totalFlower * TAX_RATE
+            total = totalFlower + totalTax
             self.addLabel(text = "Your flowers were tulip with the color purple totaling at", row = 2, column = 1, sticky = "N")
             self.addLabel(text = total, row = 3, column = 1, sticky = "N")
         #checking that tulip and white was pressed
         elif colorCheck == 2 and flowerCheck == 1:
-            total = (TULIP_COST + WHITE_COST) * TAX_RATE
+            totalFlower = TULIP_COST + WHITE_COST
+            totalTax = totalFlower * TAX_RATE
+            total = totalFlower + totalTax
             self.addLabel(text = "Your flowers were tulip with the color white totaling at", row = 2, column = 1, sticky = "N")
             self.addLabel(text = total, row = 3, column = 1, sticky = "N")
         #checking that daisy and purple was pressed
         elif colorCheck == 1 and flowerCheck == 2:
-            total = (DAISY_COST + PURPLE_COST) * TAX_RATE
+            totalFlower = DAISY_COST + PURPLE_COST
+            totalTax = totalFlower * TAX_RATE
+            total = totalFlower + totalTax
             self.addLabel(text = "Your flowers were daisy with the color purple totaling at", row = 2, column = 1, sticky = "N")
             self.addLabel(text = total, row = 3, column = 1, sticky = "N")
         #checking that daisy and white was pressed
         elif colorCheck == 2 and flowerCheck == 2:
-            total = (DAISY_COST + WHITE_COST) * TAX_RATE
+            totalFlower = DAISY_COST + WHITE_COST
+            totalTax = totalFlower * TAX_RATE
+            total = totalFlower + totalTax
             self.addLabel(text = "Your flowers were daisy with the color white totaling at", row = 2, column = 1, sticky = "N")
             self.addLabel(text = total, row = 3, column = 1, sticky = "N")
             
